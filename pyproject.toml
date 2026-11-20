@@ -1,0 +1,37 @@
+[project]
+name = "apilog"
+version = "1.1.0"
+description = "Apiary logbook for hive inspections. FastAPI + SQLite backend and an offline PWA."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.139.0",
+    "uvicorn[standard]>=0.34.0",
+    "sqlmodel>=0.0.39",
+    "python-multipart>=0.0.20",
+]
+
+[dependency-groups]
+# Dev dependencies (tests). `uv sync` installs them, `uv sync --no-dev` skips
+# them. httpx is needed by the FastAPI TestClient.
+dev = [
+    "httpx>=0.28.0",
+    "pytest>=9.2.0",
+]
+
+[project.scripts]
+# Lets you start the server with: uv run apilog
+apilog = "app.__main__:main"
+
+[tool.uv]
+package = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,25 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Local data (SQLite)
+apilog.db
+apilog.db-journal
+apilog.db-wal
+apilog.db-shm
+
+# Build artefacts (uv.lock is committed)
+dist/
+*.egg-info/
+
+# Tools
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.python-version
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
